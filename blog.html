@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - ApexCorp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 text-2xl font-extrabold text-slate-900">
+        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+          <i class="fa-solid fa-chart-line text-lg"></i>
+        </div>
+        <span>Apex<span class="text-blue-600">Corp</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 font-semibold text-slate-600 text-sm">
+        <a href="index.html" class="hover:text-blue-600 transition">Accueil</a>
+        <a href="apropos.html" class="hover:text-blue-600 transition">À propos</a>
+        <a href="services.html" class="hover:text-blue-600 transition">Services</a>
+        <a href="realisations.html" class="hover:text-blue-600 transition">Réalisations</a>
+        <a href="faq.html" class="hover:text-blue-600 transition">FAQ</a>
+        <a href="blog.html" class="text-blue-600 font-bold">Blog</a>
+        <a href="contact.html" class="hover:text-blue-600 transition">Contact</a>
+      </nav>
+      <a href="devis.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition">
+        Demander un devis
+      </a>
+    </div>
+  </header>
+
+  <div class="bg-slate-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
+      <h1 class="text-4xl font-extrabold">Blog & Vaovao Matihanina</h1>
+      <p class="text-slate-400 max-w-xl mx-auto">Lahatsoratra sy torohevitra hy fampandrosoana ny fiharian'ny orinasanao.</p>
+    </div>
+  </div>
+
+  <!-- OPTION 9: BLOG / ACTUALITÉS -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
+        <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=80" class="h-48 w-full object-cover">
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="text-xs text-blue-600 font-bold">12 Janoary 2025 • Digital</div>
+            <h3 class="font-bold text-slate-900 text-lg leading-snug">Ahoana no hanatsarana ny SEO amin'ny 2025?</h3>
+            <p class="text-slate-600 text-sm line-clamp-3">Ireo tetika vaovao sy fomba fiasa mahomby hahatonga ny sitenao ho ambonin'ny Google.</p>
+          </div>
+          <a href="#" class="text-blue-600 font-bold text-sm hover:underline inline-block">Hamaky ny tohiny &rarr;</a>
+        </div>
+      </article>
+      <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
+        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80" class="h-48 w-full object-cover">
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="text-xs text-blue-600 font-bold">08 Janoary 2025 • Marketing</div>
+            <h3 class="font-bold text-slate-900 text-lg leading-snug">Ny maha-zava-dehibe ny Branding amin'ny Varotra</h3>
+            <p class="text-slate-600 text-sm line-clamp-3">Nahoana no ilaina ny manana marika matanjaka mifandraika amin'ny mpanjifa.</p>
+          </div>
+          <a href="#" class="text-blue-600 font-bold text-sm hover:underline inline-block">Hamaky ny tohiny &rarr;</a>
+        </div>
+      </article>
+      <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" class="h-48 w-full object-cover">
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="text-xs text-blue-600 font-bold">02 Janoary 2025 • Fitantanana</div>
+            <h3 class="font-bold text-slate-900 text-lg leading-snug">Fitaovana nomerika 5 tokony ananan'ny orinasa</h3>
+            <p class="text-slate-600 text-sm line-clamp-3">Momba ireo logiciel haingana sy mahomby amin'ny fitantanana ny mpiasa sy ny mpanjifa.</p>
+          </div>
+          <a href="#" class="text-blue-600 font-bold text-sm hover:underline inline-block">Hamaky ny tohiny &rarr;</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="bg-slate-900 text-slate-400 py-8 mt-auto text-center text-sm">
+    &copy; 2025 ApexCorp. All rights reserved.
+  </footer>
+</body>
+</html>
