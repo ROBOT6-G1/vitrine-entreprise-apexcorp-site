@@ -3,100 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>À propos - ApexCorp</title>
+  <title>À Propos - Clinique Santé Plus</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
-
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3 text-2xl font-extrabold text-slate-900">
-        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
-          <i class="fa-solid fa-chart-line text-lg"></i>
-        </div>
-        <span>Apex<span class="text-blue-600">Corp</span></span>
+<body class="bg-slate-50 text-slate-800">
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2">
+        <i class="fa-solid fa-heart-pulse text-sky-600 text-3xl"></i>
+        <span class="text-xl font-bold text-slate-800">Clinique <span class="text-sky-600">Santé Plus</span></span>
       </a>
-      <nav class="hidden md:flex items-center gap-8 font-semibold text-slate-600 text-sm">
-        <a href="index.html" class="hover:text-blue-600 transition">Accueil</a>
-        <a href="apropos.html" class="text-blue-600 font-bold">À propos</a>
-        <a href="services.html" class="hover:text-blue-600 transition">Services</a>
-        <a href="realisations.html" class="hover:text-blue-600 transition">Réalisations</a>
-        <a href="faq.html" class="hover:text-blue-600 transition">FAQ</a>
-        <a href="blog.html" class="hover:text-blue-600 transition">Blog</a>
-        <a href="contact.html" class="hover:text-blue-600 transition">Contact</a>
-      </nav>
-      <a href="devis.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition">
-        Demander un devis
-      </a>
+      <div class="hidden md:flex space-x-6 font-medium text-slate-600">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html" class="text-sky-600">À propos</a>
+        <a href="services.html">Services</a>
+        <a href="medecins.html">Médecins</a>
+        <a href="rdv.html">Rendez-vous</a>
+        <a href="faq.html">FAQ</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <!-- PAGE HEADER -->
-  <div class="bg-slate-900 text-white py-16">
-    <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
-      <h1 class="text-4xl font-extrabold">Momba ny Orinasanay (À propos)</h1>
-      <p class="text-slate-400 max-w-xl mx-auto">Jereo ny tantaranay, ny mpiasa matihanina ary ny soatoavina ijoroanay.</p>
-    </div>
+  <!-- Header Banner -->
+  <div class="bg-sky-700 text-white py-12 text-center">
+    <h1 class="text-3xl font-bold">À Propos de la Clinique Santé Plus</h1>
+    <p class="text-sky-200 mt-2">Notre histoire, nos valeurs et nos engagements médicaux.</p>
   </div>
 
-  <!-- OPTION 2: À PROPOS DETAIL -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      <div class="space-y-6">
-        <h2 class="text-3xl font-extrabold text-slate-900">Tantara sy Tanjon'i ApexCorp</h2>
-        <p class="text-slate-600 leading-relaxed">
-          Natsangana tamin'ny taona 2015 i ApexCorp mba hanampiana ireo orinasa malagasy sy iraisam-pirenena hiditra amin'ny vanim-potoana nomerika. Izahay dia mifantoka amin'ny kalitao ambony sy ny fahafaham-pon'ny mpanjifa.
-        </p>
-        <p class="text-slate-600 leading-relaxed">
-          Mino izahay fa ny teknolojia sy ny paikady tsara no lakilen'ny fahombiazana amin'izao fotoana izao.
-        </p>
+  <!-- OPTION 2: À PROPOS DETAILED -->
+  <main class="max-w-7xl mx-auto px-4 py-16 space-y-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-2xl font-bold text-slate-800 mb-4">Une Mission Dédiée à Votre Bien-être</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">Fondée en 2012, la Clinique Santé Plus s'est développée autour d'un principe fondamental : fournir des soins de santé accessibles, modernes et personnalisés pour tous les membres de la communauté.</p>
+        <p class="text-slate-600 leading-relaxed">Nous combinons une technologie médicale de pointe avec une écoute attentive pour assurer des diagnostics précis et des traitements efficaces dans les meilleures conditions de confort.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80" class="rounded-2xl shadow-lg">
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+      <div>
+        <p class="text-4xl font-extrabold text-sky-600">12+</p>
+        <p class="text-sm text-slate-500 mt-1">Années d'Expérience</p>
       </div>
       <div>
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" class="rounded-2xl shadow-lg border border-slate-200">
+        <p class="text-4xl font-extrabold text-teal-600">15+</p>
+        <p class="text-sm text-slate-500 mt-1">Médecins Spécialistes</p>
+      </div>
+      <div>
+        <p class="text-4xl font-extrabold text-amber-500">25k+</p>
+        <p class="text-sm text-slate-500 mt-1">Patients Soignés</p>
+      </div>
+      <div>
+        <p class="text-4xl font-extrabold text-sky-600">24/7</p>
+        <p class="text-sm text-slate-500 mt-1">Service Urgences</p>
       </div>
     </div>
-  </section>
+  </main>
 
-  <!-- OPTION 7: ÉQUIPE -->
-  <section class="py-16 bg-slate-50 border-t border-slate-200">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
-        <span class="text-blue-600 font-bold uppercase tracking-wider text-sm">Ny Mpiara-miasa</span>
-        <h2 class="text-3xl font-extrabold text-slate-900">Ekipa Matanjaka sy Matihanina</h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 text-center p-6 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-blue-500">
-          <h3 class="font-bold text-slate-900 text-lg">Rasoa Harilala</h3>
-          <p class="text-blue-600 text-xs font-semibold uppercase mb-2">Directrice Générale</p>
-          <p class="text-slate-500 text-xs">Traikefa 12 taona amin'ny fitantanana orinasa sy ny paikady.</p>
-        </div>
-        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 text-center p-6 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-blue-500">
-          <h3 class="font-bold text-slate-900 text-lg">Rakoto Jean</h3>
-          <p class="text-blue-600 text-xs font-semibold uppercase mb-2">Chef Technique / CTO</p>
-          <p class="text-slate-500 text-xs">Maneho sy mampiditra ny teknolojia vaovao indrindra.</p>
-        </div>
-        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 text-center p-6 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-blue-500">
-          <h3 class="font-bold text-slate-900 text-lg">Andry Nirina</h3>
-          <p class="text-blue-600 text-xs font-semibold uppercase mb-2">Responsable Marketing</p>
-          <p class="text-slate-500 text-xs">Abohay amin'ny lafiny rehetra ny fahafantarana ny marikao.</p>
-        </div>
-        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 text-center p-6 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-blue-500">
-          <h3 class="font-bold text-slate-900 text-lg">Maro Kanto</h3>
-          <p class="text-blue-600 text-xs font-semibold uppercase mb-2">Lead Designer</p>
-          <p class="text-slate-500 text-xs">Mamorta UI/UX maoderina sy manintona mpanjifa.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="bg-slate-900 text-slate-400 py-8 mt-auto text-center text-sm">
-    &copy; 2025 ApexCorp. All rights reserved.
+  <footer class="bg-slate-900 text-slate-400 py-6 text-center text-sm">
+    © 2025 Clinique Santé Plus. Tous droits réservés.
   </footer>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
