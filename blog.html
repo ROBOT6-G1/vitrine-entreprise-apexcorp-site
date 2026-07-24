@@ -3,84 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog - ApexCorp</title>
+  <title>Blog Santé - Clinique Santé Plus</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
-
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3 text-2xl font-extrabold text-slate-900">
-        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
-          <i class="fa-solid fa-chart-line text-lg"></i>
-        </div>
-        <span>Apex<span class="text-blue-600">Corp</span></span>
+<body class="bg-slate-50 text-slate-800">
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2">
+        <i class="fa-solid fa-heart-pulse text-sky-600 text-3xl"></i>
+        <span class="text-xl font-bold text-slate-800">Clinique <span class="text-sky-600">Santé Plus</span></span>
       </a>
-      <nav class="hidden md:flex items-center gap-8 font-semibold text-slate-600 text-sm">
-        <a href="index.html" class="hover:text-blue-600 transition">Accueil</a>
-        <a href="apropos.html" class="hover:text-blue-600 transition">À propos</a>
-        <a href="services.html" class="hover:text-blue-600 transition">Services</a>
-        <a href="realisations.html" class="hover:text-blue-600 transition">Réalisations</a>
-        <a href="faq.html" class="hover:text-blue-600 transition">FAQ</a>
-        <a href="blog.html" class="text-blue-600 font-bold">Blog</a>
-        <a href="contact.html" class="hover:text-blue-600 transition">Contact</a>
-      </nav>
-      <a href="devis.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition">
-        Demander un devis
-      </a>
+      <div class="hidden md:flex space-x-6 font-medium text-slate-600">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="services.html">Services</a>
+        <a href="medecins.html">Médecins</a>
+        <a href="rdv.html">Rendez-vous</a>
+        <a href="faq.html">FAQ</a>
+        <a href="blog.html" class="text-sky-600">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <div class="bg-slate-900 text-white py-16">
-    <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
-      <h1 class="text-4xl font-extrabold">Blog & Vaovao Matihanina</h1>
-      <p class="text-slate-400 max-w-xl mx-auto">Lahatsoratra sy torohevitra hy fampandrosoana ny fiharian'ny orinasanao.</p>
-    </div>
+  <div class="bg-sky-700 text-white py-12 text-center">
+    <h1 class="text-3xl font-bold">Blog Santé & Conseils Médicaux</h1>
+    <p class="text-sky-200 mt-2">Articles et conseils préventifs rédigés par nos médecins.</p>
   </div>
 
-  <!-- OPTION 9: BLOG / ACTUALITÉS -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
-        <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=80" class="h-48 w-full object-cover">
-        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-          <div class="space-y-2">
-            <div class="text-xs text-blue-600 font-bold">12 Janoary 2025 • Digital</div>
-            <h3 class="font-bold text-slate-900 text-lg leading-snug">Ahoana no hanatsarana ny SEO amin'ny 2025?</h3>
-            <p class="text-slate-600 text-sm line-clamp-3">Ireo tetika vaovao sy fomba fiasa mahomby hahatonga ny sitenao ho ambonin'ny Google.</p>
-          </div>
-          <a href="#" class="text-blue-600 font-bold text-sm hover:underline inline-block">Hamaky ny tohiny &rarr;</a>
+  <!-- OPTION 9: BLOG SANTÉ -->
+  <main class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <article class="bg-white rounded-2xl shadow overflow-hidden border border-slate-100 card-hover">
+      <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <span class="text-xs font-bold text-sky-600 uppercase tracking-wider">Prévention Cardiaque</span>
+        <h2 class="font-bold text-xl mt-2 text-slate-800 hover:text-sky-600">5 Conseils pour Maintenir un Cœur en Bon Sante</h2>
+        <p class="text-slate-600 text-sm mt-2">Une alimentation équilibrée et une activité physique régulière réduisent considérablement les risques vasculaires.</p>
+        <div class="mt-4 pt-4 border-t flex justify-between text-xs text-slate-400">
+          <span><i class="fa-regular fa-calendar mr-1"></i>10 Fév 2025</span>
+          <span>Par Dr Marie Rasoa</span>
         </div>
-      </article>
-      <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
-        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80" class="h-48 w-full object-cover">
-        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-          <div class="space-y-2">
-            <div class="text-xs text-blue-600 font-bold">08 Janoary 2025 • Marketing</div>
-            <h3 class="font-bold text-slate-900 text-lg leading-snug">Ny maha-zava-dehibe ny Branding amin'ny Varotra</h3>
-            <p class="text-slate-600 text-sm line-clamp-3">Nahoana no ilaina ny manana marika matanjaka mifandraika amin'ny mpanjifa.</p>
-          </div>
-          <a href="#" class="text-blue-600 font-bold text-sm hover:underline inline-block">Hamaky ny tohiny &rarr;</a>
-        </div>
-      </article>
-      <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" class="h-48 w-full object-cover">
-        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-          <div class="space-y-2">
-            <div class="text-xs text-blue-600 font-bold">02 Janoary 2025 • Fitantanana</div>
-            <h3 class="font-bold text-slate-900 text-lg leading-snug">Fitaovana nomerika 5 tokony ananan'ny orinasa</h3>
-            <p class="text-slate-600 text-sm line-clamp-3">Momba ireo logiciel haingana sy mahomby amin'ny fitantanana ny mpiasa sy ny mpanjifa.</p>
-          </div>
-          <a href="#" class="text-blue-600 font-bold text-sm hover:underline inline-block">Hamaky ny tohiny &rarr;</a>
-        </div>
-      </article>
-    </div>
-  </section>
+      </div>
+    </article>
 
-  <footer class="bg-slate-900 text-slate-400 py-8 mt-auto text-center text-sm">
-    &copy; 2025 ApexCorp. All rights reserved.
+    <article class="bg-white rounded-2xl shadow overflow-hidden border border-slate-100 card-hover">
+      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <span class="text-xs font-bold text-teal-600 uppercase tracking-wider">Pédiatrie</span>
+        <h2 class="font-bold text-xl mt-2 text-slate-800 hover:text-sky-600">L'Importance des Vaccins chez les Nourrissons</h2>
+        <p class="text-slate-600 text-sm mt-2">Le calendrier vaccinal permet de protéger efficacement vos enfants contre les maladies graves.</p>
+        <div class="mt-4 pt-4 border-t flex justify-between text-xs text-slate-400">
+          <span><i class="fa-regular fa-calendar mr-1"></i>04 Fév 2025</span>
+          <span>Par Dr Luc Randria</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="bg-white rounded-2xl shadow overflow-hidden border border-slate-100 card-hover">
+      <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Nutrition</span>
+        <h2 class="font-bold text-xl mt-2 text-slate-800 hover:text-sky-600">Comment Améliorer Son Système Immunitaire Naturellement</h2>
+        <p class="text-slate-600 text-sm mt-2">Découvrez les vitamines et habitudes de vie essentielles pour renforcer vos défenses immunitaires.</p>
+        <div class="mt-4 pt-4 border-t flex justify-between text-xs text-slate-400">
+          <span><i class="fa-regular fa-calendar mr-1"></i>28 Jan 2025</span>
+          <span>Par Dr Jean Rakoto</span>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-6 text-center text-sm">
+    © 2025 Clinique Santé Plus. Tous droits réservés.
   </footer>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
