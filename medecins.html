@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Médecins - Clinique Santé Plus</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2">
+        <i class="fa-solid fa-heart-pulse text-sky-600 text-3xl"></i>
+        <span class="text-xl font-bold text-slate-800">Clinique <span class="text-sky-600">Santé Plus</span></span>
+      </a>
+      <div class="hidden md:flex space-x-6 font-medium text-slate-600">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="services.html">Services</a>
+        <a href="medecins.html" class="text-sky-600">Médecins</a>
+        <a href="rdv.html">Rendez-vous</a>
+        <a href="faq.html">FAQ</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-sky-700 text-white py-12 text-center">
+    <h1 class="text-3xl font-bold">Notre Équipe Médicale</h1>
+    <p class="text-sky-200 mt-2">Des spécialistes dévoués à votre santé.</p>
+  </div>
+
+  <!-- OPTION 3: MÉDECINS FULL LIST -->
+  <main class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="bg-white rounded-2xl shadow overflow-hidden text-center border border-slate-100">
+      <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=500&q=80" class="w-full h-56 object-cover">
+      <div class="p-6">
+        <h3 class="font-bold text-lg">Dr Jean Rakoto</h3>
+        <p class="text-sky-600 font-medium text-sm">Médecine Générale</p>
+        <p class="text-xs text-slate-500 mt-2">Jours d'intervention: Lun, Mer, Ven</p>
+        <a href="rdv.html" class="mt-4 block w-full bg-sky-600 text-white text-xs font-bold py-2 rounded shadow hover:bg-sky-700 transition">Prendre RDV</a>
+      </div>
+    </div>
+    <div class="bg-white rounded-2xl shadow overflow-hidden text-center border border-slate-100">
+      <img src="https://images.unsplash.com/photo-1594824813566-78a0115e580e?auto=format&fit=crop&w=500&q=80" class="w-full h-56 object-cover">
+      <div class="p-6">
+        <h3 class="font-bold text-lg">Dr Marie Rasoa</h3>
+        <p class="text-sky-600 font-medium text-sm">Cardiologie</p>
+        <p class="text-xs text-slate-500 mt-2">Jours d'intervention: Mar, Jeu, Sam</p>
+        <a href="rdv.html" class="mt-4 block w-full bg-sky-600 text-white text-xs font-bold py-2 rounded shadow hover:bg-sky-700 transition">Prendre RDV</a>
+      </div>
+    </div>
+    <div class="bg-white rounded-2xl shadow overflow-hidden text-center border border-slate-100">
+      <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=500&q=80" class="w-full h-56 object-cover">
+      <div class="p-6">
+        <h3 class="font-bold text-lg">Dr Luc Randria</h3>
+        <p class="text-sky-600 font-medium text-sm">Pédiatrie</p>
+        <p class="text-xs text-slate-500 mt-2">Jours d'intervention: Lun, Mar, Mer, Ven</p>
+        <a href="rdv.html" class="mt-4 block w-full bg-sky-600 text-white text-xs font-bold py-2 rounded shadow hover:bg-sky-700 transition">Prendre RDV</a>
+      </div>
+    </div>
+    <div class="bg-white rounded-2xl shadow overflow-hidden text-center border border-slate-100">
+      <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=500&q=80" class="w-full h-56 object-cover">
+      <div class="p-6">
+        <h3 class="font-bold text-lg">Dr Sarah Andriama</h3>
+        <p class="text-sky-600 font-medium text-sm">Gynécologie</p>
+        <p class="text-xs text-slate-500 mt-2">Jours d'intervention: Mer, Jeu, Sam</p>
+        <a href="rdv.html" class="mt-4 block w-full bg-sky-600 text-white text-xs font-bold py-2 rounded shadow hover:bg-sky-700 transition">Prendre RDV</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-6 text-center text-sm">
+    © 2025 Clinique Santé Plus. Tous droits réservés.
+  </footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
