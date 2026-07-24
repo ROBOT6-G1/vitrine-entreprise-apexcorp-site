@@ -1,142 +1,133 @@
-import { db, doc, setDoc, collection, onSnapshot } from './firebase-config.js';
+import { db, collection, addDoc, getDocs, doc, deleteDoc, onSnapshot } from './firebase-config.js';
 
-// Authentication state
-let isAuthenticated = false;
+let authenticated = false;
 
-const loginForm = document.getElementById('adminLoginForm');
-const loginSection = document.getElementById('loginSection');
-const dashboardSection = document.getElementById('dashboardSection');
-const loginError = document.getElementById('loginError');
-const logoutBtn = document.getElementById('logoutBtn');
+document.addEventListener('DOMContentLoaded', () => {
+  const loginForm = document.getElementById('admin-login-form');
+  const authDiv = document.getElementById('auth-container');
+  const adminDash = document.getElementById('admin-dashboard');
+  const pwdInput = document.getElementById('admin-password');
 
-if (loginForm) {
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const pass = document.getElementById('adminPassInput').value;
-    if (pass === '1234') {
-      isAuthenticated = true;
-      loginSection.classList.add('hidden');
-      dashboardSection.classList.remove('hidden');
+    const savedPwd = localStorage.getItem('admin_pwd') || '1234';
+    if (pwdInput.value === savedPwd) {
+      authenticated = true;
+      authDiv.classList.add('hidden');
+      adminDash.classList.remove('hidden');
+      loadAppointments();
       loadMessages();
     } else {
-      loginError.classList.remove('hidden');
+      alert('Mot de passe incorrect!');
     }
   });
-}
 
-if (logoutBtn) {
-  logoutBtn.addEventListener('click', () => {
-    isAuthenticated = false;
-    dashboardSection.classList.add('hidden');
-    loginSection.classList.remove('hidden');
-  });
-}
+  // Tab Switching
+  window.switchTab = function(tabName) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+    document.getElementById('tab-' + tabName).classList.remove('hidden');
+  };
 
-// Tab switcher
-window.switchTab = function(tabId) {
-  document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
-  const target = document.getElementById(tabId);
-  if (target) target.classList.remove('hidden');
-};
-
-// Save Content changes
-const saveBtn = document.getElementById('saveAllContentBtn');
-if (saveBtn) {
-  saveBtn.addEventListener('click', async () => {
-    const heroTitle = document.getElementById('editHeroTitle').value;
-    const heroDesc = document.getElementById('editHeroDesc').value;
-    const aboutText = document.getElementById('editAboutText').value;
-
-    try {
-      await setDoc(doc(db, 'site_content', 'hero'), {
-        title: heroTitle,
-        description: heroDesc,
-        updatedAt: new Date().toISOString()
-      });
-      await setDoc(doc(db, 'site_content', 'about'), {
-        text: aboutText,
-        updatedAt: new Date().toISOString()
-      });
-      alert('Voasoratra soa aman-tsara ny fanovana!');
-    } catch (err) {
-      console.error('Erreur enregistrement:', err);
-      alert('Misy olana teo am-paritahana ny fanovana.');
-    }
-  });
-}
-
-// Load messages from Firestore
-function loadMessages() {
-  const container = document.getElementById('messagesContainer');
-  if (!container) return;
-
-  onSnapshot(collection(db, 'messages'), (snapshot) => {
-    if (snapshot.empty) {
-      container.innerHTML = '<p class="text-slate-500 text-sm">Mbola tsy misy hafatra.</p>';
-      return;
-    }
-    container.innerHTML = '';
-    snapshot.forEach(docSnap => {
-      const m = docSnap.data();
-      const card = document.createElement('div');
-      card.className = 'bg-slate-800 border border-slate-700 p-4 rounded-xl space-y-2 text-sm';
-      card.innerHTML = `
-        <div class="flex justify-between items-center">
-          <span class="px-2 py-0.5 rounded text-xs font-bold ${m.type === 'devis' ? 'bg-amber-500/20 text-amber-400' : 'bg-blue-500/20 text-blue-400'}">
-            ${m.type ? m.type.toUpperCase() : 'CONTACT'}
-          </span>
-          <span class="text-xs text-slate-500">${m.createdAt ? new Date(m.createdAt).toLocaleString('fr-FR') : ''}</span>
-        </div>
-        <div class="font-bold text-white">${m.name || 'Sans Nom'} <span class="text-slate-400 font-normal text-xs">(${m.contact || m.phone || m.email || ''})</span></div>
-        ${m.subject ? `<div class="text-xs text-blue-400 font-semibold">Lohahevitra: ${m.subject}</div>` : ''}
-        ${m.service ? `<div class="text-xs text-amber-400 font-semibold">Service: ${m.service}</div>` : ''}
-        <p class="text-slate-300 text-xs bg-slate-900 p-3 rounded-lg border border-slate-800">${m.message || m.details || ''}</p>
-      `;
-      container.appendChild(card);
+  // Change Password
+  const changePwdBtn = document.getElementById('change-pwd-btn');
+  if (changePwdBtn) {
+    changePwdBtn.addEventListener('click', () => {
+      const newPwd = document.getElementById('new-password').value;
+      if (newPwd.length >= 4) {
+        localStorage.setItem('admin_pwd', newPwd);
+        alert('Mot de passe modifié avec succès!');
+      } else {
+        alert('Le mot de passe doit comporter au moins 4 caractères.');
+      }
     });
-  });
-}
+  }
 
-// HTML5 Canvas Image Compression (<150KB)
-const uploader = document.getElementById('imageUploader');
-if (uploader) {
-  uploader.addEventListener('change', (e) => {
-    const file = e.target.files[0];
+  // Canvas Image Compression (< 150KB)
+  window.compressImage = function(fileInput, previewImg, hiddenInput) {
+    const file = fileInput.files[0];
     if (!file) return;
-
     const reader = new FileReader();
-    reader.onload = function(event) {
+    reader.onload = (e) => {
       const img = new Image();
-      img.src = event.target.result;
-      img.onload = function() {
+      img.onload = () => {
         const canvas = document.createElement('canvas');
         let width = img.width;
         let height = img.height;
-        const maxWidth = 800;
-
-        if (width > maxWidth) {
-          height = (maxWidth * height) / width;
-          width = maxWidth;
+        const maxDim = 800;
+        if (width > maxDim || height > maxDim) {
+          if (width > height) {
+            height = Math.round((height * maxDim) / width);
+            width = maxDim;
+          } else {
+            width = Math.round((width * maxDim) / height);
+            height = maxDim;
+          }
         }
-
         canvas.width = width;
         canvas.height = height;
         const ctx = canvas.getContext('2d');
         ctx.drawImage(img, 0, 0, width, height);
-
-        const base64 = canvas.toDataURL('image/jpeg', 0.7);
-        const preview = document.getElementById('imagePreview');
-        const resultArea = document.getElementById('imageBase64Result');
-        const previewBox = document.getElementById('imagePreviewBox');
-        const sizeInfo = document.getElementById('imageSizeInfo');
-
-        const approxKB = Math.round((base64.length * 3) / 4 / 1024);
-        sizeInfo.textContent = `Sary Voa-compresse: ~${approxKB} KB (Limit <150KB)`;
-        preview.src = base64;
-        resultArea.value = base64;
-        previewBox.classList.remove('hidden');
+        let quality = 0.7;
+        let dataUrl = canvas.toDataURL('image/jpeg', quality);
+        previewImg.src = dataUrl;
+        hiddenInput.value = dataUrl;
       };
+      img.src = e.target.result;
     };
     reader.readAsDataURL(file);
-  });
-}
+  };
+
+  // Load Appointments
+  function loadAppointments() {
+    const list = document.getElementById('rdv-list');
+    onSnapshot(collection(db, 'appointments'), (snapshot) => {
+      list.innerHTML = '';
+      snapshot.forEach((docSnap) => {
+        const data = docSnap.data();
+        const tr = document.createElement('tr');
+        tr.className = 'border-b';
+        tr.innerHTML = `
+          <td class="p-3">${data.patient || ''}</td>
+          <td class="p-3">${data.phone || ''}<br><span class="text-xs text-gray-500">${data.email || ''}</span></td>
+          <td class="p-3">${data.doctor || 'Non spécifié'}</td>
+          <td class="p-3">${data.service || ''}</td>
+          <td class="p-3">${data.date || ''}</td>
+          <td class="p-3"><button onclick="deleteRdv('${docSnap.id}')" class="bg-red-500 text-white px-2 py-1 rounded text-xs">Supprimer</button></td>
+        `;
+        list.appendChild(tr);
+      });
+    });
+  }
+
+  // Load Messages
+  function loadMessages() {
+    const list = document.getElementById('msg-list');
+    onSnapshot(collection(db, 'messages'), (snapshot) => {
+      list.innerHTML = '';
+      snapshot.forEach((docSnap) => {
+        const data = docSnap.data();
+        const tr = document.createElement('tr');
+        tr.className = 'border-b';
+        tr.innerHTML = `
+          <td class="p-3">${data.nom || ''}</td>
+          <td class="p-3">${data.email || ''}</td>
+          <td class="p-3">${data.sujet || ''}</td>
+          <td class="p-3 text-sm">${data.message || ''}</td>
+          <td class="p-3"><button onclick="deleteMsg('${docSnap.id}')" class="bg-red-500 text-white px-2 py-1 rounded text-xs">Supprimer</button></td>
+        `;
+        list.appendChild(tr);
+      });
+    });
+  }
+
+  window.deleteRdv = async function(id) {
+    if (confirm('Supprimer ce rendez-vous ?')) {
+      await deleteDoc(doc(db, 'appointments', id));
+    }
+  };
+  window.deleteMsg = async function(id) {
+    if (confirm('Supprimer ce message ?')) {
+      await deleteDoc(doc(db, 'messages', id));
+    }
+  };
+});
