@@ -3,123 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Panel - ApexCorp</title>
+  <title>Espace Administration - Clinique Santé Plus</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col">
 
-  <!-- LOGIN SECTION -->
-  <div id="loginSection" class="flex-1 flex items-center justify-center p-6">
-    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-8 max-w-md w-full space-y-6 shadow-2xl">
-      <div class="text-center space-y-2">
-        <div class="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center mx-auto text-xl font-bold shadow-lg shadow-blue-500/30">
-          <i class="fa-solid fa-lock"></i>
-        </div>
-        <h1 class="text-2xl font-extrabold text-white">Administration ApexCorp</h1>
-        <p class="text-slate-400 text-xs">Ampidiro ny teny miafina (Mot de passe par défaut: <span class="text-blue-400 font-mono">1234</span>)</p>
+  <!-- Header Admin -->
+  <header class="bg-slate-900 text-white py-4 px-6 flex justify-between items-center shadow">
+    <div class="flex items-center space-x-3">
+      <i class="fa-solid fa-user-shield text-sky-400 text-2xl"></i>
+      <span class="font-bold text-lg">Administration Clinique Santé Plus</span>
+    </div>
+    <a href="index.html" class="text-xs bg-slate-800 hover:bg-slate-700 px-3 py-2 rounded text-slate-200 transition"><i class="fa-solid fa-house mr-1"></i>Voir le site</a>
+  </header>
+
+  <!-- AUTH CONTAINER -->
+  <div id="auth-container" class="flex-1 flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-slate-200">
+      <div class="text-center mb-6">
+        <i class="fa-solid fa-lock text-4xl text-sky-600 mb-2"></i>
+        <h2 class="text-2xl font-bold text-slate-800">Connexion Admin</h2>
+        <p class="text-xs text-slate-500 mt-1">Mot de passe par défaut: <b>1234</b></p>
       </div>
-      <form id="adminLoginForm" class="space-y-4">
+      <form id="admin-login-form" class="space-y-4">
         <div>
-          <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Mot de Passe</label>
-          <input type="password" id="adminPassInput" required class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+          <label class="block text-xs font-bold text-slate-700 mb-1 uppercase">Mot de passe</label>
+          <input type="password" id="admin-password" required class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-sky-500 outline-none">
         </div>
-        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-sm transition shadow-lg shadow-blue-500/20">
-          Se Connecter
-        </button>
-        <p id="loginError" class="text-red-400 text-xs text-center hidden font-bold">Mot de passe diso!</p>
+        <button type="submit" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 rounded-lg shadow transition">Se Connecter</button>
       </form>
     </div>
   </div>
 
-  <!-- DASHBOARD SECTION -->
-  <div id="dashboardSection" class="hidden flex-1 flex flex-col md:flex-row">
-    <!-- SIDEBAR -->
-    <aside class="w-full md:w-64 bg-slate-950 border-r border-slate-800 p-6 space-y-6">
-      <div class="flex items-center justify-between">
-        <div class="font-extrabold text-white text-xl flex items-center gap-2">
-          <i class="fa-solid fa-sliders text-blue-500"></i> Admin Panel
-        </div>
+  <!-- ADMIN DASHBOARD -->
+  <div id="admin-dashboard" class="hidden flex-1 max-w-7xl w-full mx-auto p-4 md:p-8 space-y-6">
+    <!-- Navigation Tabs -->
+    <div class="flex border-b border-slate-300 space-x-2 overflow-x-auto pb-2">
+      <button onclick="switchTab('rdv')" class="px-4 py-2 bg-white rounded-t-lg font-bold text-sky-600 shadow-sm border border-b-0"><i class="fa-solid fa-calendar-days mr-2"></i>Rendez-vous</button>
+      <button onclick="switchTab('messages')" class="px-4 py-2 bg-white rounded-t-lg font-bold text-slate-600 shadow-sm border border-b-0"><i class="fa-solid fa-envelope mr-2"></i>Messages</button>
+      <button onclick="switchTab('content')" class="px-4 py-2 bg-white rounded-t-lg font-bold text-slate-600 shadow-sm border border-b-0"><i class="fa-solid fa-pen-to-square mr-2"></i>Éditeur de Contenu</button>
+      <button onclick="switchTab('security')" class="px-4 py-2 bg-white rounded-t-lg font-bold text-slate-600 shadow-sm border border-b-0"><i class="fa-solid fa-key mr-2"></i>Sécurité</button>
+    </div>
+
+    <!-- Tab Rendez-vous -->
+    <div id="tab-rdv" class="tab-content bg-white p-6 rounded-b-2xl shadow-md border border-slate-200">
+      <h3 class="text-xl font-bold mb-4 text-slate-800"><i class="fa-solid fa-calendar-check text-sky-600 mr-2"></i>Demandes de Rendez-vous en direct</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-100 text-slate-700 text-xs uppercase">
+              <th class="p-3">Patient</th>
+              <th class="p-3">Contact</th>
+              <th class="p-3">Médecin</th>
+              <th class="p-3">Service</th>
+              <th class="p-3">Date</th>
+              <th class="p-3">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="rdv-list" class="text-sm text-slate-600">
+            <!-- Dynamic RDV Rows -->
+          </tbody>
+        </table>
       </div>
-      <nav class="space-y-1 text-sm font-semibold">
-        <button onclick="switchTab('tabContent')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 hover:text-white flex items-center gap-3 active-tab">
-          <i class="fa-solid fa-pen-to-square text-blue-400"></i> Éditeur de Contenu
-        </button>
-        <button onclick="switchTab('tabMessages')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 hover:text-white flex items-center gap-3">
-          <i class="fa-solid fa-inbox text-blue-400"></i> Hafatra & Devis
-        </button>
-        <button onclick="switchTab('tabImages')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 hover:text-white flex items-center gap-3">
-          <i class="fa-solid fa-image text-blue-400"></i> Compresseur d'Image
-        </button>
-      </nav>
-      <button id="logoutBtn" class="w-full bg-red-600/20 text-red-400 border border-red-500/30 hover:bg-red-600 hover:text-white font-bold py-2.5 rounded-xl text-sm transition mt-auto">
-        <i class="fa-solid fa-right-from-bracket mr-2"></i> Deconnexion
-      </button>
-    </aside>
+    </div>
 
-    <!-- MAIN CONTENT AREA -->
-    <main class="flex-1 p-6 md:p-10 space-y-8 overflow-y-auto">
-      <!-- TAB 1: CONTENT EDITOR -->
-      <div id="tabContent" class="tab-pane space-y-6">
-        <div class="flex justify-between items-center border-b border-slate-800 pb-4">
-          <h2 class="text-2xl font-bold text-white">Manao Modification Ny Content Rehetra (10 Options)</h2>
-          <button id="saveAllContentBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded-xl text-sm transition shadow-lg shadow-blue-500/20 flex items-center gap-2">
-            <i class="fa-solid fa-floppy-disk"></i> Enregistrer les Modifications
-          </button>
-        </div>
-
-        <!-- EDIT HERO -->
-        <div class="bg-slate-800 border border-slate-700 p-6 rounded-2xl space-y-4">
-          <h3 class="text-lg font-bold text-blue-400 flex items-center gap-2"><i class="fa-solid fa-heading"></i> 1. Hero / Accueil</h3>
-          <div>
-            <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Titre Principale</label>
-            <input type="text" id="editHeroTitle" value="Akselereo ny fivoaran'ny fiharianao amin'ny fomba matihanina." class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white outline-none">
-          </div>
-          <div>
-            <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Texte Description</label>
-            <textarea id="editHeroDesc" rows="2" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white outline-none">Mpanolotsaina sy mpiara-miasa azo antoka ho an'ny fampandrosoana ny orinasanao.</textarea>
-          </div>
-        </div>
-
-        <!-- EDIT ABOUT -->
-        <div class="bg-slate-800 border border-slate-700 p-6 rounded-2xl space-y-4">
-          <h3 class="text-lg font-bold text-blue-400 flex items-center gap-2"><i class="fa-solid fa-circle-info"></i> 2. À propos de l'entreprise</h3>
-          <div>
-            <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Texte À propos</label>
-            <textarea id="editAboutText" rows="3" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white outline-none">Fikambanana matanjaka manana traikefa mihoatra ny 10 taona izahay...</textarea>
-          </div>
-        </div>
-
-        <!-- EDIT SERVICES & PORTFOLIO INFO -->
-        <div class="bg-slate-800 border border-slate-700 p-6 rounded-2xl space-y-4">
-          <h3 class="text-lg font-bold text-blue-400 flex items-center gap-2"><i class="fa-solid fa-gear"></i> 3-10. Fampahafantarana Hafatra Azo Ovaina</h3>
-          <p class="text-slate-400 text-xs">Ireo fanovana rehetra ataotao eto dia mi-synch en direct amin'ny Cloud Firestore.</p>
-        </div>
+    <!-- Tab Messages -->
+    <div id="tab-messages" class="tab-content hidden bg-white p-6 rounded-b-2xl shadow-md border border-slate-200">
+      <h3 class="text-xl font-bold mb-4 text-slate-800"><i class="fa-solid fa-inbox text-sky-600 mr-2"></i>Boîte de Réception Messages</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-100 text-slate-700 text-xs uppercase">
+              <th class="p-3">Nom</th>
+              <th class="p-3">Email</th>
+              <th class="p-3">Sujet</th>
+              <th class="p-3">Message</th>
+              <th class="p-3">Action</th>
+            </tr>
+          </thead>
+          <tbody id="msg-list" class="text-sm text-slate-600">
+            <!-- Dynamic Messages -->
+          </tbody>
+        </table>
       </div>
+    </div>
 
-      <!-- TAB 2: MESSAGES -->
-      <div id="tabMessages" class="tab-pane hidden space-y-6">
-        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-4">Boîte de Réception (Hafatra sy Devis)</h2>
-        <div id="messagesContainer" class="space-y-4">
-          <p class="text-slate-500 text-sm">Mbola tsy misy hafatra vaovao.</p>
-        </div>
-      </div>
-
-      <!-- TAB 3: IMAGE COMPRESSOR -->
-      <div id="tabImages" class="tab-pane hidden space-y-6">
-        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-4">Compresseur d'Image HTML5 Canvas (&lt;150KB)</h2>
-        <div class="bg-slate-800 border border-slate-700 p-6 rounded-2xl space-y-4 max-w-xl">
-          <p class="text-xs text-slate-400">Fidihana sary avy amin'ny ordinatera hazo compressena ho ambanin'ny 150KB mba tsy hampavesatra ny site.</p>
-          <input type="file" id="imageUploader" accept="image/*" class="block w-full text-sm text-slate-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700">
-          <div id="imagePreviewBox" class="hidden space-y-2 pt-2">
-            <div class="text-xs text-emerald-400 font-bold" id="imageSizeInfo"></div>
-            <img id="imagePreview" class="w-48 h-32 object-cover rounded-xl border border-slate-700">
-            <textarea id="imageBase64Result" readonly rows="3" class="w-full p-2 bg-slate-900 text-slate-400 text-xs rounded-lg font-mono outline-none"></textarea>
+    <!-- Tab Content & HTML5 Image Compressor -->
+    <div id="tab-content" class="tab-content hidden bg-white p-6 rounded-b-2xl shadow-md border border-slate-200 space-y-6">
+      <h3 class="text-xl font-bold text-slate-800"><i class="fa-solid fa-image text-sky-600 mr-2"></i>Gestionnaire de Contenu & Compression d'Image</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-4 border rounded-xl bg-slate-50 space-y-4">
+          <h4 class="font-bold text-slate-700">Compresseur d'Image Canvas (&lt;150KB)</h4>
+          <input type="file" accept="image/*" onchange="compressImage(this, document.getElementById('preview-img'), document.getElementById('img-data-holder'))" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-50 file:text-sky-700 hover:file:bg-sky-100">
+          <input type="hidden" id="img-data-holder">
+          <div class="mt-2">
+            <p class="text-xs text-slate-500 mb-1">Aperçu miniature :</p>
+            <img id="preview-img" class="h-32 object-cover rounded border bg-white">
           </div>
         </div>
+        <div class="p-4 border rounded-xl bg-slate-50 space-y-3">
+          <h4 class="font-bold text-slate-700">Texte Hero / Annonce</h4>
+          <input type="text" placeholder="Titre principal" class="w-full p-2 border rounded text-sm">
+          <textarea placeholder="Description hero" rows="3" class="w-full p-2 border rounded text-sm"></textarea>
+          <button class="bg-sky-600 text-white font-bold px-4 py-2 rounded text-xs hover:bg-sky-700">Enregistrer les modifications</button>
+        </div>
       </div>
-    </main>
+    </div>
+
+    <!-- Tab Security -->
+    <div id="tab-security" class="tab-content hidden bg-white p-6 rounded-b-2xl shadow-md border border-slate-200 max-w-md">
+      <h3 class="text-xl font-bold mb-4 text-slate-800"><i class="fa-solid fa-shield-halved text-sky-600 mr-2"></i>Sécurité de l'Admin</h3>
+      <div class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Nouveau Mot de Passe</label>
+          <input type="password" id="new-password" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-sky-500 outline-none">
+        </div>
+        <button id="change-pwd-btn" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-4 py-2 rounded-lg text-sm shadow transition">Mettre à jour</button>
+      </div>
+    </div>
   </div>
 
   <script type="module" src="admin.js"></script>
