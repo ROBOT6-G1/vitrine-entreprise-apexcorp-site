@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - ApexCorp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 text-2xl font-extrabold text-slate-900">
+        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+          <i class="fa-solid fa-chart-line text-lg"></i>
+        </div>
+        <span>Apex<span class="text-blue-600">Corp</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 font-semibold text-slate-600 text-sm">
+        <a href="index.html" class="hover:text-blue-600 transition">Accueil</a>
+        <a href="apropos.html" class="hover:text-blue-600 transition">À propos</a>
+        <a href="services.html" class="hover:text-blue-600 transition">Services</a>
+        <a href="realisations.html" class="hover:text-blue-600 transition">Réalisations</a>
+        <a href="faq.html" class="text-blue-600 font-bold">FAQ</a>
+        <a href="blog.html" class="hover:text-blue-600 transition">Blog</a>
+        <a href="contact.html" class="hover:text-blue-600 transition">Contact</a>
+      </nav>
+      <a href="devis.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition">
+        Demander un devis
+      </a>
+    </div>
+  </header>
+
+  <div class="bg-slate-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
+      <h1 class="text-4xl font-extrabold">Py Question Posees Soha (FAQ)</h1>
+      <p class="text-slate-400 max-w-xl mx-auto">Valiny ho an'ireo fanontaniana apetraka matetika momba ny tolotray.</p>
+    </div>
+  </div>
+
+  <!-- OPTION 8: FAQ ACCORDEONS -->
+  <section class="py-16 bg-white flex-1">
+    <div class="max-w-3xl mx-auto px-6 space-y-4">
+      <details class="bg-slate-50 rounded-xl border border-slate-200 p-5 cursor-pointer group">
+        <summary class="font-bold text-slate-900 flex justify-between items-center">
+          <span>Hafiriana no faharetan'ny fahavitan'ny tetikasa tranonkala?</span>
+          <i class="fa-solid fa-chevron-down group-open:rotate-180 transition transform text-blue-600"></i>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          Miankina amin'ny haben'ny tetikasa sy ny zava-dehibe takiana, saingy matetika dia eo anelanelan'ny 1 hatramin'ny 3 herinandro ny faharetany.
+        </p>
+      </details>
+      <details class="bg-slate-50 rounded-xl border border-slate-200 p-5 cursor-pointer group">
+        <summary class="font-bold text-slate-900 flex justify-between items-center">
+          <span>Misy tohana (support) ve aorian'ny fahavitan'ny tetikasa?</span>
+          <i class="fa-solid fa-chevron-down group-open:rotate-180 transition transform text-blue-600"></i>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          Eny tokoa! Maimaimpoana ny tohana mandritra ny 30 andro voalohany aorian'ny fampidirana ny site, ary misy fampiofanana ny fampiasana ny Espace Admin.
+        </p>
+      </details>
+      <details class="bg-slate-50 rounded-xl border border-slate-200 p-5 cursor-pointer group">
+        <summary class="font-bold text-slate-900 flex justify-between items-center">
+          <span>Ahoana ny fomba fandoavam-bola amin'ny devis?</span>
+          <i class="fa-solid fa-chevron-down group-open:rotate-180 transition transform text-blue-600"></i>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          Azo atao ny mandoa amin'ny Mobile Money (Mvola, Airtel Money, Orange Money) na amin'ny alalan'ny Virement Banciare. Atao in-2 ny fandoavana: 50% am-panombohana ary 50% amin'ny fahavitany.
+        </p>
+      </details>
+      <details class="bg-slate-50 rounded-xl border border-slate-200 p-5 cursor-pointer group">
+        <summary class="font-bold text-slate-900 flex justify-between items-center">
+          <span>Azo amboarina ve ny afovoan-tsite ho ahy irery?</span>
+          <i class="fa-solid fa-chevron-down group-open:rotate-180 transition transform text-blue-600"></i>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          Eny, omena Admin Panel feno ianao ahafahanao manova ny lahatsoratra, sary, tolotra ary fandraisana hafatra am-pahatokiana.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+    &copy; 2025 ApexCorp. All rights reserved.
+  </footer>
+</body>
+</html>
